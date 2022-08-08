@@ -193,9 +193,9 @@ diff --git a/modules/skparagraph/src/ParagraphImpl.cpp b/modules/skparagraph/src
          advance.fY = metrics.height();
          auto clusterRange = ClusterRange(0, trailingSpaces);
          auto clusterRangeWithGhosts = ClusterRange(0, this->clusters().size() - 1);
--        this->addLine(SkPoint::Make(0, 0), advance,
 +        TextIndent indent = this->paragraphStyle().getTextIndent();
 +        SkScalar lineIndent = indent.getFirstLine();
+-        this->addLine(SkPoint::Make(0, 0), advance,
 +        this->addLine(SkPoint::Make(0, 0), lineIndent, advance,
                        textExcludingSpaces, textRange, textRange,
                        clusterRange, clusterRangeWithGhosts, run.advance().x(),

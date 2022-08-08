@@ -28,3 +28,7 @@ python3 script/checkout.py --version m99-f85ab491eb-2
 python3 script/build.py --build-type Debug
 python3 script/archive.py --build-type Debug
 ```
+
+# skiaMdPro
+
+VS2019/VS2022 project test

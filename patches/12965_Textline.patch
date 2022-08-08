@@ -1,0 +1,19 @@
+diff --git a/modules/skparagraph/src/TextLine.h b/modules/skparagraph/src/TextLine.h
+--- a/modules/skparagraph/src/TextLine.h	(revision f204b137b97b44b7397de173fc54181c37ac6501)
++++ b/modules/skparagraph/src/TextLine.h	(date 1659467114691)
+@@ -46,6 +46,7 @@
+ 
+     TextLine(ParagraphImpl* owner,
+              SkVector offset,
++             SkScalar indent,
+              SkVector advance,
+              BlockRange blocks,
+              TextRange textExcludingSpaces,
+@@ -159,6 +160,7 @@
+     SkVector fAdvance;                  // Text size
+     SkVector fOffset;                   // Text position
+     SkScalar fShift;                    // Let right
++    SkScalar fIndent;                   // Text indent
+     SkScalar fWidthWithSpaces;
+     std::unique_ptr<Run> fEllipsis;     // In case the line ends with the ellipsis
+     InternalLineMetrics fSizes;                 // Line metrics as a max of all run metrics and struts

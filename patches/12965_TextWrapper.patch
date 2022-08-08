@@ -1,0 +1,41 @@
+diff --git a/modules/skparagraph/src/TextWrapper.cpp b/modules/skparagraph/src/TextWrapper.cpp
+--- a/modules/skparagraph/src/TextWrapper.cpp	(revision f204b137b97b44b7397de173fc54181c37ac6501)
++++ b/modules/skparagraph/src/TextWrapper.cpp	(date 1659467114703)
+@@ -285,9 +285,11 @@
+     auto start = span.begin();
+     InternalLineMetrics maxRunMetrics;
+     bool needEllipsis = false;
++    TextIndent indent = parent->paragraphStyle().getTextIndent();
++    SkScalar lineIndent = indent.getFirstLine();
+     while (fEndLine.endCluster() != end) {
+
+-        lookAhead(maxWidth, end);
++        lookAhead(maxWidth - lineIndent, end);
+
+         auto lastLine = (hasEllipsis && unlimitedLines) || fLineNumber >= maxLines;
+         needEllipsis = hasEllipsis && !endlessLine && lastLine;
+@@ -377,6 +379,7 @@
+                 fEndLine.startPos(),
+                 fEndLine.endPos(),
+                 SkVector::Make(0, fHeight),
++                lineIndent,
+                 SkVector::Make(fEndLine.width(), lineHeight),
+                 fEndLine.metrics(),
+                 needEllipsis && !fHardLineBreak);
+@@ -407,6 +410,8 @@
+             break;
+         }
+
++        lineIndent = indent.getRestLine();
++
+         ++fLineNumber;
+     }
+
+@@ -478,6 +483,7 @@
+                 0,
+                 0,
+                 SkVector::Make(0, fHeight),
++                lineIndent,
+                 SkVector::Make(0, fEndLine.metrics().height()),
+                 fEndLine.metrics(),
+                 needEllipsis);

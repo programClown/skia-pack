@@ -73,8 +73,15 @@ def main():
     args += [
       # 'skia_use_angle=true',
       'skia_use_direct3d=true',
-      'extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS"]',
     ]
+    if build_type == 'Debug':
+    	args += [
+      	'extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS", "/D_DEBUG", "/Od", "/MDd"]',
+    	]
+    else:
+      args += [
+      	'extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS", "/MD"]',
+    	]
   elif 'android' == target:
     args += [
       'ndk="'+ ndk + '"'

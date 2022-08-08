@@ -1,8 +1,3 @@
-Index: modules/skparagraph/src/TextLine.h
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/TextLine.h b/modules/skparagraph/src/TextLine.h
 --- a/modules/skparagraph/src/TextLine.h	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/TextLine.h	(date 1659467114691)
@@ -22,11 +17,6 @@ diff --git a/modules/skparagraph/src/TextLine.h b/modules/skparagraph/src/TextLi
      SkScalar fWidthWithSpaces;
      std::unique_ptr<Run> fEllipsis;     // In case the line ends with the ellipsis
      InternalLineMetrics fSizes;                 // Line metrics as a max of all run metrics and struts
-Index: modules/skparagraph/include/ParagraphStyle.h
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/include/ParagraphStyle.h b/modules/skparagraph/include/ParagraphStyle.h
 --- a/modules/skparagraph/include/ParagraphStyle.h	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/include/ParagraphStyle.h	(date 1659467114697)
@@ -82,11 +72,6 @@ diff --git a/modules/skparagraph/include/ParagraphStyle.h b/modules/skparagraph/
  };
  }  // namespace textlayout
  }  // namespace skia
-Index: modules/skparagraph/src/TextWrapper.cpp
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/TextWrapper.cpp b/modules/skparagraph/src/TextWrapper.cpp
 --- a/modules/skparagraph/src/TextWrapper.cpp	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/TextWrapper.cpp	(date 1659467114703)
@@ -128,11 +113,6 @@ diff --git a/modules/skparagraph/src/TextWrapper.cpp b/modules/skparagraph/src/T
                  SkVector::Make(0, fEndLine.metrics().height()),
                  fEndLine.metrics(),
                  needEllipsis);
-Index: modules/skparagraph/src/ParagraphStyle.cpp
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/ParagraphStyle.cpp b/modules/skparagraph/src/ParagraphStyle.cpp
 --- a/modules/skparagraph/src/ParagraphStyle.cpp	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/ParagraphStyle.cpp	(date 1659467114706)
@@ -148,11 +128,6 @@ diff --git a/modules/skparagraph/src/ParagraphStyle.cpp b/modules/skparagraph/sr
  ParagraphStyle::ParagraphStyle() {
      fTextAlign = TextAlign::kStart;
      fTextDirection = TextDirection::kLtr;
-Index: modules/skparagraph/src/ParagraphImpl.h
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/ParagraphImpl.h b/modules/skparagraph/src/ParagraphImpl.h
 --- a/modules/skparagraph/src/ParagraphImpl.h	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/ParagraphImpl.h	(date 1659467114710)
@@ -165,11 +140,6 @@ diff --git a/modules/skparagraph/src/ParagraphImpl.h b/modules/skparagraph/src/P
                        TextRange textExcludingSpaces, TextRange text, TextRange textIncludingNewlines,
                        ClusterRange clusters, ClusterRange clustersWithGhosts, SkScalar widthWithSpaces,
                        InternalLineMetrics sizes);
-Index: modules/skparagraph/src/TextWrapper.h
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/TextWrapper.h b/modules/skparagraph/src/TextWrapper.h
 --- a/modules/skparagraph/src/TextWrapper.h	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/TextWrapper.h	(date 1659467114715)
@@ -181,11 +151,6 @@ diff --git a/modules/skparagraph/src/TextWrapper.h b/modules/skparagraph/src/Tex
                                                    SkVector advance,
                                                    InternalLineMetrics metrics,
                                                    bool addEllipsis)>;
-Index: modules/skparagraph/src/ParagraphImpl.cpp
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/ParagraphImpl.cpp b/modules/skparagraph/src/ParagraphImpl.cpp
 --- a/modules/skparagraph/src/ParagraphImpl.cpp	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/ParagraphImpl.cpp	(date 1659467716243)
@@ -231,11 +196,6 @@ diff --git a/modules/skparagraph/src/ParagraphImpl.cpp b/modules/skparagraph/src
                                 textExcludingSpaces, text, textIncludingNewLines,
                                 clusters, clustersWithGhosts, widthWithSpaces, sizes);
  }
-Index: modules/skparagraph/src/TextLine.cpp
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
 diff --git a/modules/skparagraph/src/TextLine.cpp b/modules/skparagraph/src/TextLine.cpp
 --- a/modules/skparagraph/src/TextLine.cpp	(revision f204b137b97b44b7397de173fc54181c37ac6501)
 +++ b/modules/skparagraph/src/TextLine.cpp	(date 1659467114730)

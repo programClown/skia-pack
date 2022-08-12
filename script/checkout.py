@@ -10,7 +10,7 @@ def main():
 
   # Clone depot_tools
   if not os.path.exists("depot_tools"):
-    subprocess.check_call(["git", "clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git", "depot_tools"])
+    subprocess.check_call(["git", "clone", "--config", "core.autocrlf=input", "https://chromium.googlesource.com/chromium/tools/depot_tools.git", "depot_tools"])
 
   # Clone Skia
   match = re.match('(m\\d+)(?:-([0-9a-f]+)(?:-([1-9][0-9]*))?)?', args.version)
@@ -34,7 +34,7 @@ def main():
       subprocess.check_call(["git", "checkout", branch])
   else:
     print("> Cloning", branch)
-    subprocess.check_call(["git", "clone", "https://skia.googlesource.com/skia", "--quiet", "--branch", branch, "skia"])
+    subprocess.check_call(["git", "clone", "--config", "core.autocrlf=input", "https://skia.googlesource.com/skia", "--quiet", "--branch", branch, "skia"])
     os.chdir("skia")
 
   # Checkout commit
@@ -53,7 +53,7 @@ def main():
     env['PYTHONHTTPSVERIFY']='0'
     subprocess.check_call(["python", "tools/git-sync-deps"], env=env)
   else:
-    subprocess.check_call(["python2", "tools/git-sync-deps"])
+    subprocess.check_call(["python", "tools/git-sync-deps"])
 
   return 0
 

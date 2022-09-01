@@ -14,6 +14,8 @@ def main():
 
   tools_dir = "depot_tools"
   ninja = 'ninja.exe' if 'windows' == host else 'ninja'
+  isIos = 'ios' == target or 'iosSim' == target
+  isIosSim = 'iosSim' == target
 
   if build_type == 'Debug':
     args = ['is_debug=true']
@@ -40,15 +42,17 @@ def main():
     'skia_enable_skottie=true'
   ]
 
-  if 'macos' == target or 'ios' == target:
+  if 'macos' == target or isIos:
     args += [
       # 'skia_enable_gpu=true',
       # 'skia_use_gl=true',
       'skia_use_metal=true',
       'extra_cflags_cc=["-frtti"]'
     ]
-    if 'ios' == target:
+    if isIos:
       args += ['target_os="ios"']
+      if isIosSim:
+        args += ['ios_use_simulator=true']
     else:
       if 'arm64' == machine:
         args += ['extra_cflags=["-stdlib=libc++"]']
@@ -94,9 +98,6 @@ def main():
 
     # see skia/modules/canvaskit/compile.sh for reference:
     args += [
-        'cc="emcc"',
-        'cxx="emcc"',
-        'ar="emar"',
         'skia_use_dng_sdk=false',
         'skia_use_libjpeg_turbo_decode=true',
         'skia_use_libjpeg_turbo_encode=true',
@@ -120,6 +121,8 @@ def main():
         'skia_gl_standard="webgl"',
         'skia_use_gl=true',
         'skia_enable_gpu=true',
+        'skia_enable_svg=true', # other targets have this set in skia.gni
+        'skia_use_expat=true',   # other targets have this set in skia.gni
         'extra_cflags=["-DSK_SUPPORT_GPU=1", "-DSK_GL", "-DSK_DISABLE_LEGACY_SHADERCONTEXT"]'
     ]
 

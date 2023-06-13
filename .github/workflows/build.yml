@@ -16,13 +16,12 @@ env:
   version: m110-d88a7b5
 
 jobs:
-  
   windows:
     runs-on: windows-2019
     strategy:
       matrix:
         build_type: [Debug, Release]
-        machine: ["x64", "arm64"]
+        machine: ["x64"]
       fail-fast: false
     steps:
       - run: git config --global core.autocrlf input
